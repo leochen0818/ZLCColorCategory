@@ -19,7 +19,7 @@ extension UIColor {
      *            But if hexString is not correctly RGB hex string, will return white color
      *
      */
-    class func colorWithHexString(hexString: String) -> UIColor {
+    class func colorWithHexString(_ hexString: String) -> UIColor {
         
         // No input or error input
         if hexString == "", hexString.characters.count != 7 {
@@ -68,6 +68,26 @@ extension UIColor {
         
         // Make UIColor
         let newUIColor = UIColor(red: CGFloat(redValue)/255.0, green: CGFloat(greenValue)/255.0, blue: CGFloat(blueValue)/255.0, alpha: 1.0)
+        
+        return newUIColor
+    }
+    
+    /*
+     *  @brief - return a UIColor of transparency with hex string
+     *
+     *  @param - param_in hexString - use this string make UIColor with RGB
+     *
+     *  @param - param_in alpha - value of transparency
+     *
+     *  @return - return correct UIColor.
+     *            But if hexString is not correctly RGB hex string, will return white color
+     *
+     */
+    class func colorWithHexString(_ hexString: String, alpha:CGFloat) -> UIColor {
+        
+        // Make UIColor
+        let newUIColor = self.colorWithHexString(hexString)
+        newUIColor.withAlphaComponent(alpha)
         
         return newUIColor
     }

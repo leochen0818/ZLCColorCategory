@@ -27,7 +27,7 @@
     }
     
     // error input
-    if ([[hexString substringToIndex:1] isEqualToString:@"#"]) {
+    if (![[hexString substringToIndex:1] isEqualToString:@"#"]) {
         return [UIColor whiteColor];
     }
     
@@ -73,6 +73,39 @@
     
     // Make UIColor
     UIColor * correctUIColor = [UIColor colorWithRed:redValue/255.0 green:greenValue/255.0 blue:blueValue/255.0 alpha:1.0];
+    
+    return correctUIColor;
+}
+
+/*
+ *  @brief - return a UIColor of transparency with hex string
+ *
+ *  @param - param_in hexString - use this string make UIColor with RGB
+ *
+ *  @param - param_in alpha - value of transparency
+ *
+ *  @return - return correct UIColor.
+ *            But if hexString is not correctly RGB hex string, will return white color
+ *
+ */
++ (UIColor *)colorWithHexString:(NSString *)hexString Alpha:(CGFloat)alpha {
+    
+    // Make UIColor
+    UIColor * color = [self colorWithHexString:hexString];
+    CGColorRef colorRef = [color CGColor];
+    
+    size_t numComponents = CGColorGetNumberOfComponents(colorRef);
+    
+    UIColor * correctUIColor;
+    if (numComponents == 4)
+    {
+        const CGFloat *components = CGColorGetComponents(colorRef);
+        CGFloat red = components[0];
+        CGFloat green = components[1];
+        CGFloat blue = components[2];
+        correctUIColor = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
+        
+    }
     
     return correctUIColor;
 }

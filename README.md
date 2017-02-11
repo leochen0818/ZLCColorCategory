@@ -20,6 +20,12 @@ Make UIColor with hex string as follow:
 UIColor color = [UIColor colorWithHexString:@"#4267b2"];
 ```  
   
+Make UIColor of transparency with hex string as follow:
+
+```objective-c
+UIColor color = [UIColor colorWithHexString:@"#4267b2" Alpha:0.8];
+```  
+  
 ##### Swift
 
 Pull `ZLCColorCategory.swift` into your **Swift** project.  
@@ -27,6 +33,11 @@ Pull `ZLCColorCategory.swift` into your **Swift** project.
 And than just make UIColor with hex string as follow:
 
 ```swift
-let color:UIColor = UIColor.colorWithHexString(hexString: "#4267b2")
+let color:UIColor = UIColor.colorWithHexString("#4267b2")
 ```
+  
+Make UIColor of transparency with hex string as follow:
 
+```swift
+let color:UIColor = UIColor.colorWithHexString("#4267b2", alpha:0.8)
+```

@@ -11,5 +11,6 @@
 @interface UIColor (ZLCColorCategory)
 
 + (UIColor *)colorWithHexString:(NSString *)hexString;
++ (UIColor *)colorWithHexString:(NSString *)hexString Alpha:(CGFloat)alpha;
 
 @end
